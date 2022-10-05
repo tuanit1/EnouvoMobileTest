@@ -120,6 +120,12 @@ Name: Đỗ Thanh Tuấn Team: Mobile - Android(Kotlin) Onboarding: 03/10/2022
 
 - Dùng để thẻ đánh dấu (tag) cho mỗi commit và khi cần xem bạn chỉ cần sử dụng lệnh ***git show tên_tag*** là đã có thông tin rất rõ ràng, ngoài ra nó còn giúp bạn dễ dàng diff (đối chiếu) sau này khi không cần nhớ checksum (dù chỉ cần nhớ vài ký tự đầu tiên) của mỗi commit mà chỉ cần nhớ tag
 
+- Lightweight Tag và Annotated Tag
+
+  - **Lightweight Tag**: Các tag này chỉ đơn thuần là đánh dấu snapshot của commit.
+  - **Annotated Tag**: Với tag này, bạn có thể đặt tiêu đề cho tag, và khi xem nó sẽ có thông tin về người tag, ngày tag,….
+
+##### Cách tạo Lightweight Tag
 ``` git
     $ git tag v1.0
     $ git tag
@@ -137,6 +143,56 @@ Name: Đỗ Thanh Tuấn Team: Mobile - Android(Kotlin) Onboarding: 03/10/2022
     index 0000000..e69de29
 ```
 
+##### Cách tạo Annotated Tag
+``` git
+    $ git tag -a v1.0-an -m "Ra mat phien ban 1.0"
+    $ git show v1.0-an
+    tag v1.0-an
+    Tagger: Thach Pham <contact@thachpham.com>
+    Date: Thu Apr 23 02:41:11 2015 -0700
+
+    Ra mat phien ban 1.0
+
+    commit d5a599e3385a8fc7a65958ed50bc8b54666b45ad
+    Author: Thach Pham <contact@thachpham.com>
+    Date: Thu Apr 23 02:40:31 2015 -0700
+
+    Commit for Annotated Tag
+
+    diff --git a/tag.html b/tag.html
+    index e69de29..fea03c1 100644
+    --- a/tag.html
+    +++ b/tag.html
+    @@ -0,0 +1 @@
+    +Annotated Tag
+```
+
+##### Thêm tag cho các commit cũ
+
+- Nếu bạn có rất nhiều commit trước đó mà cần gắn tag thì chỉ cần thêm mã checksum (hoặc một đoạn mã checksum) của lần commit đó.
+- Để xem mã checksum của các lần commit trước đó thì bạn có thể sử dụng git log với tham số --pretty với giá trị oneline để lọc log nhé.
+
+``` git
+    $ git log --pretty=oneline
+    d5a599e3385a8fc7a65958ed50bc8b54666b45ad Commit for Annotated Tag
+    05193375f7a7c1295fd26c6388d81e188f405b0b Added a new tag
+    435f642f951fbab1037fc2feef239ab26d6e6115 Added faq.html
+    6904d5232bf90821068279311e205e3e1ff929f1 Initial commit
+```
+
+-  Khai báo một đoạn mã checksum của nó vào lệnh git tag như sau.
+
+``` git
+    $ git tag -a v0.0 c2ac50101 -m "Tag for inintial commit" 
+```
+
+#### Push Tag
+
+- Mặc định lệnh git push sẽ không push các tag đã tạo lên repository mà bạn có thể dùng lệnh git push --tags để đẩy toàn bộ tag lên repository.
+
+``` git
+    $ git push --tags
+```
 
 
 
