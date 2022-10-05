@@ -50,6 +50,6 @@ Mỗi khi chuẩn bị release phiên bản mới thì **branch release** sẽ �
 
   - Đôi lúc vì một số lý do khách hàng muốn ra mắt ngay tính năng mới đang phát triển trên develop. Và tất nhiên khi đẩy trực tiếp như thế sẽ xuất hiện một lỗi nghiêm trọng trong phiên bản release. 
 
-- Vì code trên master phải là code release được nên nếu có bugs nó phải được ưu tiên sửa chữa ngay. Từ **master branch hotfix** sẽ được tạo và xử lý khi xong sẽ lại được merge vào **master** và **develop**.
+- Vì code trên master phải là code release được nên nếu có bugs nó phải được ưu tiên sửa chữa ngay. Từ **master branch hotfix** sẽ được tạo và xử lý khi xong sẽ lại được merge vào **master** và **develop**..
 
 ![](https://static.wixstatic.com/media/20d819_0feed90969d447d9927b0c56eb6fbe35~mv2.png)
