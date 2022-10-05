@@ -100,7 +100,42 @@ Name: Đỗ Thanh Tuấn Team: Mobile - Android(Kotlin) Onboarding: 03/10/2022
 
 #### Undo Commit
 -   Nếu bạn cần xóa bỏ lần commit trước và cần undo để commit lại thì có thể sử dụng tham số --amend trong lệnh git commit
--  Nếu bạn cần xóa bỏ lần commit trước và cần undo để commit lại thì có thể sử dụng tham số --amend trong lệnh git commit
+
+``` git
+    $ git log --pretsty="%s"
+    Hihi
+    First commit on Github
+    $ git commit --amend -m "Hehe"
+    [master 3682e56] Hehe
+    Date: Tue Apr 21 17:16:37 2015 -0700
+    2 files changed, 1 insertion(+), 1 deletion(-)
+    create mode 100644 faq.html
+    $ git log --pretty="%s"
+    Hehe
+    First commit on Github
+```
+- Lưu ý rằng undo nghĩa là bạn quay trở lại bước commit lần trước, do vậy nếu cần bổ sung tập tin nào vào để commit thì hãy đưa tập tin đó vào Staging Area trước.
+
+#### Git tag
+
+- Dùng để thẻ đánh dấu (tag) cho mỗi commit và khi cần xem bạn chỉ cần sử dụng lệnh ***git show tên_tag*** là đã có thông tin rất rõ ràng, ngoài ra nó còn giúp bạn dễ dàng diff (đối chiếu) sau này khi không cần nhớ checksum (dù chỉ cần nhớ vài ký tự đầu tiên) của mỗi commit mà chỉ cần nhớ tag
+
+``` git
+    $ git tag v1.0
+    $ git tag
+    v1.0
+
+    $ git show v1.0
+    commit 05193375f7a7c1295fd26c6388d81e188f405b0b
+    Author: Thach Pham <contact@thachpham.com>
+    Date: Thu Apr 23 02:20:50 2015 -0700
+
+    Added a new tag
+
+    diff --git a/tag.html b/tag.html
+    new file mode 100644
+    index 0000000..e69de29
+```
 
 
 
