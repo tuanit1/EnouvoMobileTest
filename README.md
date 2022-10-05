@@ -50,22 +50,56 @@ Name: Đỗ Thanh Tuấn Team: Mobile - Android(Kotlin) Onboarding: 03/10/2022
 #### Tracked
 - Một khi một tập tin đã được đưa về Tracked thì nó sẽ có thể thay đổi giữa 3 trạng thái khác nhau là **Modified**, **Unmodified** và **Staged**.
 
+![stage](https://thachpham.com/wp-content/uploads/2015/04/git-lifecycle.png)
+
 ## 4. Các lệnh thực thi cơ bản
-``` kt
-    //Tạo repo
+
+#### Tạo repository
+``` git
     $ git init repo_name
+```
 
-    //Đưa file về trạng thái Tracked
+#### Add file vào staged
+``` git
     $ git add readme.txt
+```
+
+#### Kiểm tra status
+``` git
     $ git status
+```
 
-    //Commit file
+#### Commit file
+``` git
     $ git commit -m "any message"
+```
 
-    //Push commit
-    //origin nghĩa là tên remote (xem ở bài sau) và master là tên branch
+#### Push file
+- **Origin** nghĩa là tên remote và **master** là tên branch
+``` git
     $ git push origin master
 ```
+
+#### Git log
+- Để xem lịch sử của các lần commit trước đó
+- Ngoài ra, bạn có thể chèn thêm tham số -p vào để hiển thị chi tiết của mỗi lần commit.
+``` git
+    $ git log
+    commit 3f1ef84ada3dfd936735d8724f9bbb3437c77b19
+    Author: Thach Pham <contact@thachpham.com>
+    Date: Tue Apr 21 17:16:37 2015 -0700
+
+    Hihi
+
+    commit 6e729a49a36b31919daa6263f8f98f3a59d5bab3
+    Author: Thach Pham <contact@thachpham.com>
+    Date: Tue Apr 21 14:47:47 2015 -0700
+
+    First commit on Github
+```
+
+#### Undo Commit
+-   Nếu bạn cần xóa bỏ lần commit trước và cần undo để commit lại thì có thể sử dụng tham số --amend trong lệnh git commit
 
 
 
