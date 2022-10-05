@@ -1,6 +1,26 @@
-# android-tuando
-
-Name: Đỗ Thanh Tuấn Team: Mobile - Android(Kotlin) Onboarding: 03/10/2022 
+- [1. Cài đặt git](#1-cài-đặt-git)
+    - [MacOS](#macos)
+    - [Window](#window)
+    - [Linux](#linux)
+- [2. Thiết lập chứng thực cá nhân](#2-thiết-lập-chứng-thực-cá-nhân)
+- [3. Các trạng thái của file trong git](#3-các-trạng-thái-của-file-trong-git)
+    - [Staging Area](#staging-area)
+    - [Bỏ qua Staging Are để commit](#bỏ-qua-staging-are-để-commit)
+    - [Untracked](#untracked)
+    - [Tracked](#tracked)
+- [4. Các lệnh thực thi cơ bản](#4-các-lệnh-thực-thi-cơ-bản)
+    - [Tạo repository](#tạo-repository)
+    - [Add file vào staged](#add-file-vào-staged)
+    - [Kiểm tra status](#kiểm-tra-status)
+    - [Commit file](#commit-file)
+    - [Push file](#push-file)
+    - [Git log](#git-log)
+    - [Undo Commit](#undo-commit)
+    - [Git tag](#git-tag)
+      - [Cách tạo Lightweight Tag](#cách-tạo-lightweight-tag)
+      - [Cách tạo Annotated Tag](#cách-tạo-annotated-tag)
+      - [Thêm tag cho các commit cũ](#thêm-tag-cho-các-commit-cũ)
+    - [Push Tag](#push-tag)
  
 ## 1. Cài đặt git
 #### MacOS
