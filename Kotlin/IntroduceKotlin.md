@@ -234,6 +234,51 @@
     }
   ```
 
+  ``` kt
+    val array = arrayOf("a", "b", "c", "d", "e")
+
+    print("\nFor in: \n")
+    for (item in array) {
+        print(item + "")
+    }
+
+    print("\nFor Each: \n")
+    array.forEach { 
+        print(it + "") 
+    }
+
+    print("\nFor Each with modify item-name: \n")
+    array.forEach { item ->
+        print(item + "") 
+    }
+
+    print("\nFor Each with index: \n")
+    array.forEachIndexed { index, item ->
+        println("item[$index] = $item") 
+    }
+
+    val map = mapOf("key1" to "a", "key2" to "b", "key3" to "c")
+
+    print("\nFor each with key map: \n")
+    map.forEach { key, value ->
+        println("item['$key'] = $value") 
+    }
+
+    print("\nMutableList: \n")
+    val mutableList = mutableListOf("Kotlin", "Programming", "Comic Books")
+    mutableList.add("New")
+    mutableList.forEach { value ->
+        println("$value") 
+    }
+
+    print("\nMutableMap: \n")
+    val mutableMap = mutableMapOf("key1" to "Kotlin", "key2" to "Programming", "key3" to "Comic Books")
+    mutableMap.put("key4", "BKDN")
+    mutableMap.forEach { key, value ->
+        println("item['$key'] = $value") 
+    }
+  ```
+
   - **When loop**
   ``` kt
     while (x > 0) {
