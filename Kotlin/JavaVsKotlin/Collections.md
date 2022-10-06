@@ -9,7 +9,7 @@
         .collect(Collectors.toList())
 ```
 - Kotlin
-``` kt
+``` kotlin
     val filtered = numbers.filter { it > 5 }
 ```
 
@@ -24,7 +24,7 @@
     );
 ```
 - Kotlin
-``` kt
+``` kotlin
     val groups = numbers.groupBy {
         if (it % 2 == 0) "even" else "odd"
     }
@@ -42,7 +42,7 @@
     final var odds = partitioned.get(false);
 ```
 - Kotlin
-``` kt
+``` kotlin
     val (evens, odds) = numbers.partition { it % 2 == 0 }
 ```
 
@@ -53,7 +53,7 @@
     users.sort(Comparator.comparing(user -> user.lastname));
 ```
 - Kotlin
-``` kt
+``` kotlin
     val users = getUsers()
     users.sortBy { it.lastname }
 ```
@@ -66,7 +66,7 @@
     list.remove("d")
 ```
 - Kotlin
-``` kt
+``` kotlin
     val list = mutableListOf("a", "b", "c")
     list += "d"
     list -= "d"
@@ -84,7 +84,7 @@
     for (var entry: map.entrySet()) { }
 ```
 - Kotlin
-``` kt
+``` kotlin
     for (i in 1 until 11) { }
 
     for (i in 1..10 step 2) {}
@@ -103,7 +103,7 @@
     }
 ```
 - Kotlin
-``` kt
+``` kotlin
     for (i in 1 until 11) { }
 
     for (i in 1..10 step 2) {}
@@ -134,7 +134,7 @@
     }
 ```
 - Kotlin
-``` kt
+``` kotlin
     val personsSorted = listOf(
         Pair("Bob C.", 5), Pair("Alex G.", 10), Pair("Alex G.", 12)
     ).sortedWith(

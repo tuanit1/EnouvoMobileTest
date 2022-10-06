@@ -8,7 +8,7 @@
     }
 ```
 - Kotlin
-``` kt
+``` kotlin
     fun main() {
         println("Hello world!")
     }
@@ -26,7 +26,7 @@
     final var y = 1;
 ```
 - Kotlin
-``` kt
+``` kotlin
     val x: Int // compile-time error
     val y // compile-time error
     val z = 2
@@ -41,7 +41,7 @@
     w = 1;
 ```
 - Kotlin
-``` kt
+``` kotlin
     var q // compile-time error
     var w: Int // compile-time error
     var z = 2
@@ -56,7 +56,7 @@
     lastName = null;
 ```
 - Kotlin
-``` kt
+``` kotlin
     val name: String? = null
 
     var lastName: String?
@@ -76,7 +76,7 @@
         : null;
 ```
 - Kotlin
-``` kt
+``` kotlin
     val length = bob?.department?.text?.length
 ```
 
@@ -88,7 +88,7 @@
         .orElseGet(() -> fallbackIfNullMethodCall())
 ```
 - Kotlin
-``` kt
+``` kotlin
     val result = nullableVariable?.someNullableMethodCall() ?: fallbackIfNullMethodCall()
 ```
 
@@ -101,7 +101,7 @@
     final var otherText = "My name is: " + name.substring(2);
 ```
 - Kotlin
-``` kt
+``` kotlin
     val name = "John"
     val lastName = "Smith"
     val text = "My name is: $name $lastName"
@@ -116,7 +116,7 @@
                 "Third Line";
 ```
 - Kotlin
-``` kt
+``` kotlin
     val text = """
             |First Line
             |Second Line
@@ -130,7 +130,7 @@
     final var text = x > 5 ? "x > 5" : "x <= 5";
 ```
 - Kotlin
-``` kt
+``` kotlin
     val text = if (x > 5) "x > 5" else "x <= 5"
 ```
 
@@ -147,7 +147,7 @@
     var strings = new String[size];
 ```
 - Kotlin
-``` kt
+``` kotlin
     val size = 1
 
     val numbers = IntArray(size)
@@ -171,7 +171,7 @@
     }
 ```
 - Kotlin
-``` kt
+``` kotlin
     File("contents.txt")
         .bufferedReader()
         .use {

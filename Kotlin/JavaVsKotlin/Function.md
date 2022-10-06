@@ -12,7 +12,7 @@
     }
 ```
 - Kotlin
-``` kt
+``` kotlin
     fun hello(name: String = "World") {
         println("Hello, $name!")
     }
@@ -26,7 +26,7 @@
     }
 ```
 - Kotlin
-``` kt
+``` kotlin
     fun cube(x: Double) : Double = x * x * x
 ```
 
@@ -40,7 +40,7 @@
     public <T> List<T> createList(T item) { }
 ```
 - Kotlin
-``` kt
+``` kotlin
     fun init() {
         val module = createList<String>("net")
         val moduleInferred = createList("net")
@@ -69,7 +69,7 @@
     }
 ```
 - Kotlin
-``` kt
+``` kotlin
     fun main(args: Array<String>) {
         val book = createBook();
         // or

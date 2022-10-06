@@ -6,7 +6,7 @@
     final var file = new File("file.txt");
 ```
 - Kotlin
-``` kt
+``` kotlin
     val file = File("file.txt")
 ```
 
@@ -17,7 +17,7 @@
     }
 ```
 - Kotlin
-``` kt
+``` kotlin
     class User
 ```
 
@@ -28,7 +28,7 @@
     }   
 ```
 - Kotlin
-``` kt
+``` kotlin
     open class User
 ```
 4. **Final attribute**
@@ -47,7 +47,7 @@
     }   
 ```
 - Kotlin
-``` kt
+``` kotlin
     class User(val name: String)
 ```
 
@@ -71,7 +71,7 @@
     }  
 ```
 - Kotlin
-``` kt
+``` kotlin
     class User(var name: String)
 ```
 
@@ -95,7 +95,7 @@
     }
 ```
 - Kotlin
-``` kt
+``` kotlin
     class Document{
         var id : String = "00x"
             set(value) {
@@ -120,7 +120,7 @@
     }
 ```
 - Kotlin
-``` kt
+``` kotlin
     object Document {
 
     }
