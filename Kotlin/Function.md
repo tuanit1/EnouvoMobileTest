@@ -9,7 +9,7 @@
   ```
 
 - **Default arguments**
-  ``` kt 
+  ``` kotlin 
     fun read(
       b: ByteArray,
       off: Int = 0,
@@ -18,7 +18,7 @@
   ``` 
 
 - **Unit-returning functions (Tương tự void)**
-  ``` kt 
+  ``` kotlin 
     fun printHello(name: String?): Unit {
       if (name != null)
         println("Hello $name")
@@ -28,11 +28,11 @@
     }
   ``` 
 - **Single-expression functions**
-  ``` kt 
+  ``` kotlin 
     fun double(x: Int): Int = x * 2
   ``` 
 - **Variable number of arguments (varargs)**
-  ``` kt 
+  ``` kotlin 
     fun <T> asList(vararg ts: T): List<T> {
     val result = ArrayList<T>()
     for (t in ts) // ts is an Array
@@ -44,7 +44,7 @@
   ``` 
 
 - **Infix notation**
-  ``` kt 
+  ``` kotlin 
     infix fun String.greeting(name: String) :String {
         return "Hello $this, welcome to $name"
     }
@@ -55,11 +55,11 @@
 
   ``` 
 - **Generic functions**
-    ``` kt 
+    ``` kotlin 
         fun <T> singletonList(item: T): List<T> { /*...*/ }
     ```
 - **Extension functions**
-    ``` kt 
+    ``` kotlin 
         fun MutableList<Int>.swap(index1: Int, index2: Int) {
             val tmp = this[index1] // 'this' corresponds to the list
             this[index1] = this[index2]
@@ -70,7 +70,7 @@
         list.swap(0, 2) // 'this' inside 'swap()' will hold the value of 'list'
     ```    
     - Generic way
-	``` kt 
+	``` kotlin 
         fun <T> MutableList<T>.swap(index1: Int, index2: Int) {
             val tmp = this[index1] // 'this' corresponds to the list
             this[index1] = this[index2]
@@ -80,7 +80,7 @@
 
 ##### 2. Lambda
 - Higher-order functions
-    ``` kt 
+    ``` kotlin 
         fun doSomething(x: Int, y: Int, completion: (Int) -> Int): Int {
             val z: Int = x * y
             return completion(z)
@@ -98,7 +98,7 @@
         val result = doSomething(10, 5){it + 6} //super laziest
     ```
 - Lambda functions
-    ``` kt 
+    ``` kotlin 
         val getFullName: (String, String) -> String = {
             firstName, lastName -> run {
                 println("This is a lambda function")
