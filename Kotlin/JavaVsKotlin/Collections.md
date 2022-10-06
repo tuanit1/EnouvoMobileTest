@@ -12,7 +12,7 @@
 ``` kotlin
     val filtered = numbers.filter { it > 5 }
 ```
-
+---
 2. **GroupBy**
 - Java
 ``` java
@@ -29,7 +29,7 @@
         if (it % 2 == 0) "even" else "odd"
     }
 ```
-
+---
 3. **PartitionBy**
 - Java
 ``` java
@@ -45,7 +45,7 @@
 ``` kotlin
     val (evens, odds) = numbers.partition { it % 2 == 0 }
 ```
-
+---
 4. **SortBy**
 - Java
 ``` java
@@ -57,7 +57,7 @@
     val users = getUsers()
     users.sortBy { it.lastname }
 ```
-
+---
 5. **Infix function**
 - Java
 ``` java
@@ -71,7 +71,7 @@
     list += "d"
     list -= "d"
 ```
-
+---
 6. **For**
 - Java
 ``` java
@@ -94,7 +94,7 @@
 
     for ((key, value) in map) {}
 ```
-
+---
 7. **Repeat**
 - Java
 ``` java
@@ -113,7 +113,7 @@
 
     for ((key, value) in map) {}
 ```
-
+---
 8. **Comparator**
 - Java
 ``` java

@@ -1,5 +1,6 @@
 #### Compare Java vs Kotlin
 ##### Basic
+---
 1. **Hello world**
 - Java
 ``` java
@@ -17,7 +18,7 @@
         println("Hello World!")
     }
 ```
-
+---
 2. **Variable 1**
 - Java
 ``` java
@@ -31,7 +32,7 @@
     val y // compile-time error
     val z = 2
 ```
-
+---
 3. **Variable 2**
 - Java
 ``` java
@@ -46,7 +47,7 @@
     var w: Int // compile-time error
     var z = 2
 ```
-
+---
 4. **Null 1**
 - Java
 ``` java
@@ -65,6 +66,7 @@
     var firstName: String
     firstName = null // Compilation error!!
 ```
+---
 5. **Null 2**
 - Java
 ``` java
@@ -79,7 +81,7 @@
 ``` kotlin
     val length = bob?.department?.text?.length
 ```
-
+---
 6. **Elvis operator**
 - Java
 ``` java
@@ -91,7 +93,7 @@
 ``` kotlin
     val result = nullableVariable?.someNullableMethodCall() ?: fallbackIfNullMethodCall()
 ```
-
+---
 7. **String**
 - Java
 ``` java
@@ -107,7 +109,7 @@
     val text = "My name is: $name $lastName"
     val otherText = "My name is: ${name.substring(2)}"
 ```
-
+---
 8. **String 2**
 - Java
 ``` java
@@ -123,7 +125,7 @@
             |Third Line
     """.trimMargin()
 ```
-
+---
 9. **String 2**
 - Java
 ``` java
@@ -133,7 +135,7 @@
 ``` kotlin
     val text = if (x > 5) "x > 5" else "x <= 5"
 ```
-
+---
 10. **Array**
 - Java
 ``` java
@@ -157,6 +159,7 @@
 
     val strings = Array(size) { String() }
 ```
+---
 11. **Use**
 - Java
 ``` java

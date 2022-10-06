@@ -1,3 +1,14 @@
+- [1. Cài đặt Kotlin](#1-cài-đặt-kotlin)
+- [- Code Runner](#--code-runner)
+- [2. Các khái niệm cơ bản](#2-các-khái-niệm-cơ-bản)
+    - [Data type](#data-type)
+    - [Conditions](#conditions)
+    - [Loops](#loops)
+    - [Null safety](#null-safety)
+    - [Exceptions](#exceptions)
+    
+---
+
 ## 1. Cài đặt Kotlin
 - Kotlin đã được bao gồm trong [IntelliJ IDEA](https://www.jetbrains.com/idea/download/#section=windows) và [Android Studio IDE](https://developer.android.com/studio)
 - Để thực thi lệnh Kotlin trên các IDE khác cần phải cài đặt [kotlin-compiler-1.7.20.zip](https://github.com/JetBrains/kotlin/releases/tag/v1.7.20) cho Kotlin 
@@ -5,7 +16,7 @@
   - Kotlin
   - Kotlin Language
   - Code Runner
-
+---
 ## 2. Các khái niệm cơ bản
 #### Data type
 1. **Number**
@@ -18,7 +29,7 @@
       | Int   | 32          |
       | Long  | 64          |
 
-      ``` kt
+      ``` kotlin
         val one = 1 // Int
         val threeBillion = 3000000000 // Long
         val oneLong = 1L // Long
@@ -31,12 +42,12 @@
       | Float  | 32          |
       | Double | 64          |
 
-      ``` kt
+      ``` kotlin
         val pi = 3.14 // Double
         // val one: Double = 1 // Error: type mismatch
         val oneDouble = 1.0 // Double
       ```
-      ``` kt
+      ``` kotlin
         val e = 2.7182818284 // Double
         val eFloat = 2.7182818284f // Float, actual value is 2.7182817
       ```
@@ -49,7 +60,7 @@
      - **&&** – conjunction (logical AND)
      - **!** – negation (logical NOT)
     
-    ```kt
+    ```kotlin
       val myTrue: Boolean = true
       val myFalse: Boolean = false
       val boolNull: Boolean? = null
@@ -80,30 +91,30 @@
 4. **Strings**
     - Chuỗi trong Kotlin được thể hiện bằng kiểu **String**, là những chuỗi ký tự bên trong dấu nháy đôi "text"
     
-    ```kt
+    ```kotlin
       val str = "abcd 123"
     ```
 
     - Duyệt ký tự trong chuỗi
-    ``` kt
+    ``` kotlin
       for (c in str) {
         println(c)
       }
     ```
 
     - String template
-    ``` kt
+    ``` kotlin
       val i = 10
       println("i = $i") // Prints "i = 10"  
     ```
 5. **Arrays**
   - **Primitive type arrays**
-    ``` kt 
+    ``` kotlin 
       val x: IntArray = intArrayOf(1, 2, 3)
       x[0] = x[1] + x[2]
     ```
 
-    ``` kt 
+    ``` kotlin 
       // Array of int of size 5 with values [0, 0, 0, 0, 0]
       val arr = IntArray(5)
 
@@ -118,7 +129,7 @@
    - **Mutable list**
      - Kiểu dữ liệu trong list có thể được định nghĩa qua cập dấu <> và có thể chứa được các dữ liệu có kiểu khác nhau
 
-      ``` kt
+      ``` kotlin
 
         val someNumbers = mutableListOf<Int>(1, 5 ,6 ,2 ,6, 10 ,-3, 10, 3, 8)
 
@@ -130,7 +141,7 @@
 
   - **Xử lý mảng**
     - Kiểm tra tồn tại với điều kiện
-    ``` kt 
+    ``` kotlin 
       if(someNumbers.any {it < 0}){
         println("At least 1 item is negative")
       }
@@ -147,7 +158,7 @@
       //No item equal 0
     ```
     - Lọc mảng với điều kiện
-    ``` kt 
+    ``` kotlin 
       val filterNumber = someNumbers.filter { it in 4..10 } 
       //[5, 6, 6, 10, 10, 8]
 
@@ -156,7 +167,7 @@
 
     ``` 
     - Sắp xếp mảng
-    ``` kt 
+    ``` kotlin 
       val sortedName = someNames.sort()
       //[Loc, Phuoc, Tri, Truong, Tuan]
 
@@ -165,7 +176,7 @@
     ```
 #### Conditions
 - **Điều kiện if**
-  ``` kt 
+  ``` kotlin 
     var max = a
     if (a < b) max = b
 
@@ -181,7 +192,7 @@
     val max = if (a > b) a else b
   ```
   - Dùng để return giá trị
-  ``` kt 
+  ``` kotlin 
     val max = if (a > b) {
     print("Choose a")
     a
@@ -194,7 +205,7 @@
 - **Biểu thức when**
   - Là biểu thức điều kiện rẽ nhánh, khá tương tự với biểu thức switch
 
-  ``` kt 
+  ``` kotlin 
     when (x) {
       1 -> print("x == 1")
       2 -> print("x == 2")
@@ -207,7 +218,7 @@
 
   - **For loop**
 
-  ``` kt
+  ``` kotlin
 
     for (item in collection) print(item)
 
@@ -234,7 +245,7 @@
     }
   ```
 
-  ``` kt
+  ``` kotlin
     val array = arrayOf("a", "b", "c", "d", "e")
 
     print("\nFor in: \n")
@@ -280,7 +291,7 @@
   ```
 
   - **When loop**
-  ``` kt
+  ``` kotlin
     while (x > 0) {
        x--
     }
@@ -291,12 +302,12 @@
   ```
 #### Null safety
 - Trong Kotlin, hệ thống loại phân biệt giữa các tham chiếu có thể null (non-null reference) và các tham chiếu không thể null (nullable reference). Ví dụ: một biến thông thường kiểu String không thể giữ null
-``` kt
+``` kotlin
   var a: String = "abc" // Regular initialization means non-null by default
   a = null // compilation error
 ```
 - Để cho phép null:
-``` kt
+``` kotlin
   var b: String? = "abc" // can be set to null
   b = null // ok
   print(b)
@@ -304,7 +315,7 @@
 
 - **Safe calls**
   - Trả về b.length nếu b khác null, và null nếu ngược lại.
-  ``` kt
+  ``` kotlin
     val a = "Kotlin"
     val b: String? = null
     println(b?.length)
@@ -312,7 +323,7 @@
   ```
 -  **Toán tử let**
     - Để thực hiện một đoạn chương trình chỉ cho dữ liệu khác null.
-    ``` kt 
+    ``` kotlin 
       val listWithNulls: List<String?> = listOf("Kotlin", null)
       for (item in listWithNulls) {
           item?.let { println(it) } // prints Kotlin and ignores null
@@ -320,7 +331,7 @@
     ```
 
   - **Elvis operator**
-    ``` kt
+    ``` kotlin
       //normal way
       val l: Int = if (b != null) b.length else -1
 
@@ -331,7 +342,7 @@
 
 #### Exceptions
 
-  ``` kt 
+  ``` kotlin 
     try {
     // some code
     } catch (e: SomeException) {

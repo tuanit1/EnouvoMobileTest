@@ -9,7 +9,7 @@
 ``` kotlin
     val file = File("file.txt")
 ```
-
+---
 2. **Class**
 - Java
 ``` java
@@ -20,7 +20,7 @@
 ``` kotlin
     class User
 ```
-
+---
 3. **Open class**
 - Java
 ``` java
@@ -31,6 +31,7 @@
 ``` kotlin
     open class User
 ```
+---
 4. **Final attribute**
 - Java
 ``` java
@@ -50,7 +51,7 @@
 ``` kotlin
     class User(val name: String)
 ```
-
+---
 5. **Primary constructor**
 - Java
 ``` java
@@ -74,7 +75,7 @@
 ``` kotlin
     class User(var name: String)
 ```
-
+---
 6. **Properties**
 - Java
 ``` java
@@ -103,7 +104,7 @@
             }
     }
 ```
-
+---
 
 7. **Abstract Class**
 - Java

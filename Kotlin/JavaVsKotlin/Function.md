@@ -17,7 +17,7 @@
         println("Hello, $name!")
     }
 ```
-
+---
 2. **Single-statement function**
 - Java
 ``` java
@@ -29,7 +29,7 @@
 ``` kotlin
     fun cube(x: Double) : Double = x * x * x
 ```
-
+---
 3. **Generic methods**
 - Java
 ``` java
@@ -48,7 +48,7 @@
 
     fun <T> createList(item: T): List<T> { }
 ```
-
+---
 4. **Data classes**
 - Java
 ``` java

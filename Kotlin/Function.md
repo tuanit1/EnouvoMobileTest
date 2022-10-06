@@ -1,4 +1,9 @@
+- [#### Functions](#-functions)
+      - [1. Functions](#1-functions)
+      - [2. Lambda](#2-lambda)
+
 #### Functions
+---
 ##### 1. Functions
   ``` kotlin 
     fun double(x: Int): Int {
@@ -7,7 +12,6 @@
 
     val result = double(2)
   ```
-
 - **Default arguments**
   ``` kotlin 
     fun read(
@@ -77,7 +81,7 @@
             this[index2] = tmp
         }
     ```    
-
+---
 ##### 2. Lambda
 - Higher-order functions
     ``` kotlin 

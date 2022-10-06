@@ -1,7 +1,15 @@
+- [#### OOP](#-oop)
+      - [1. Classes](#1-classes)
+      - [2. Inheritance](#2-inheritance)
+      - [3. Interfaces](#3-interfaces)
+      - [4. Data class](#4-data-class)
+      - [5. Enum class](#5-enum-class)
+      - [6. Generic in, out](#6-generic-in-out)
 #### OOP
+---
 ##### 1. Classes
 - **Cách 1**
-    ``` kt
+    ``` kotlin
         class Person(private val _firstName: String = "Peter", private val _lastName: String = "Packer"){
             var firstName: String? = _firstName
             var lastName: String? = _lastName
@@ -29,7 +37,7 @@
         person.printInfo()
     ```
 - **Cách 2**
-    ``` kt
+    ``` kotlin
         class Vehicle(private val name: String, private val year: Int) {
             override fun toString(): String {
                 return "This is $name, released in $year"
@@ -41,7 +49,7 @@
         val car = Car("Mercedes C200", 29, 22000, 90)
     ```
 - **Secondary constructor**
-    ``` kt
+    ``` kotlin
         class Person(val name: String) {
             val children: MutableList<Person> = mutableListOf()
             constructor(name: String, parent: Person) : this(name) {
@@ -50,7 +58,7 @@
         }
     ```
 - **Compation object**
-    ``` kt
+    ``` kotlin
         class MyObject{
             companion object {
                 fun sayHello(text: String): String = "Hello $text"
@@ -64,8 +72,9 @@
     ```
     - Có thể gọi các props và hàm bên trong khối companion object mà không cần khởi tạo đối tượng Class
 
+---
 ##### 2. Inheritance
-``` kt 
+``` kotlin 
     open class Vehicle(private val name: String, private val year: Int) {
 
         open fun drive(){
@@ -103,9 +112,10 @@
     has engine size 90 cc
 
 ```
+---
 ##### 3. Interfaces
 - Implement interface
-``` kt
+``` kotlin
     interface MyInterface {
         val prop: Int // abstract
 
@@ -129,7 +139,7 @@
     }
 ```
 - Functional interface
-``` kt
+``` kotlin
     fun interface IntPredicate {
         fun accept(i: Int): Boolean
     }
@@ -146,6 +156,7 @@
 
 
 ```
+---
 ##### 4. Data class
 - Giống class thông thường
 - Cho phép override toString()
@@ -153,7 +164,7 @@
 - cung cấp hàm copy()
 - hashCode() cho giá trị giống nhau nếu cả 2 đối tượng đều giống dữ liệu
 
-``` kt
+``` kotlin
     data class Student(var name: String, var age: Int){
         override fun equals(other: Any?): Boolean {
             return other is Student
@@ -169,10 +180,10 @@
     println(s1.hashCode())
     println(s2.hashCode())
 ```
-
+---
 ##### 5. Enum class
 
-``` kt
+``` kotlin
     enum class ErrorRequest(val message: String) {
         ERROR("Error Server"),
         INTERNAL_ERROR("Internal Error Server"),
@@ -190,7 +201,7 @@
 
     println(errMessage)
 ```
-
+---
 ##### 6. Generic in, out
 - [Giải thích Variance, Invariance, Contravariance](https://viblo.asia/p/su-huu-ich-lon-tu-nhung-dieu-nho-trong-java-va-kotlin-ORNZqaPqZ0n?fbclid=IwAR2f7ijUL-W2kjCJMsx6V83eGCXTku8BgGwOQTdtwWNztNV0zCgLICJACV0)
 - [Phân biệt in và out trong kotlin](https://viblo.asia/p/kieu-bien-in-va-out-cua-kotlin-63vKjnOMK2R?fbclid=IwAR31dhz9DpCfpVPCQG7-FbydbgvXRew-bkbPMln_EY7g0f7CHgPT2zhRosU)
