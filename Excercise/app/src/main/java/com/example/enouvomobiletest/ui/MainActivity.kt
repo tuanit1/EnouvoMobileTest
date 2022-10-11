@@ -33,12 +33,12 @@ class MainActivity : AppCompatActivity() {
         postViewModal.setFavorite(2, 1, false)
         postViewModal.setFavorite(3, 1, true)
 
-        postViewModal.getFavouritePosts(1).observe(this) { postList ->
-            postList.forEach {
-                Log.e("AAAA", it.toString())
-            }
-            Log.e("AAAA", "" + postList.size)
-        }
+//        postViewModal.getFavouritePosts(1).observe(this) { postList ->
+//            postList.forEach {
+//                Log.e("AAAA", it.toString())
+//            }
+//            Log.e("AAAA", "" + postList.size)
+//        }
 
         mView.btnExam1.setOnClickListener {
             startActivity(Intent(this, ExamOneActivity::class.java))

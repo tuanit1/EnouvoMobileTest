@@ -8,7 +8,7 @@
     tools:context=".ui.exam1.login.fragments.SignupFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/btn_signup"
+        android:id="@+id/btn_login"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/bg_button_auth"
@@ -148,7 +148,7 @@
         app:layout_constraintWidth_percent="0.75" />
 
     <TextView
-        android:id="@+id/tv_backToLogin"
+        android:id="@+id/tv_signup"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:autoSizeTextType="uniform"
@@ -159,7 +159,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.025"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_signup"
+        app:layout_constraintTop_toBottomOf="@+id/btn_login"
         app:layout_constraintVertical_bias="0.3"
         app:layout_constraintWidth_percent="0.75" />
 
