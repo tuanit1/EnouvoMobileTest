@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
             Log.e("AAAA", "" + postList.size)
         }
 
-        mView.btnExam1.setOnClickListener { v ->
+        mView.btnExam1.setOnClickListener {
             startActivity(Intent(this, ExamOneActivity::class.java))
         }
 
