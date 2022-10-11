@@ -81,10 +81,10 @@ public abstract class AppDatabase : RoomDatabase() {
         suspend fun initUser(userDao: UserDao){
             userDao.deleteAll()
 
-            userDao.insert(User(user_id = null, name = "Tuan", email = "tuan@gmail.com", password = "123"))
-            userDao.insert(User(user_id = null, name = "Huy", email = "huy@gmail.com", password = "123"))
-            userDao.insert(User(user_id = null, name = "Hoang", email = "hoang@gmail.com", password = "123"))
-            userDao.insert(User(user_id = null, name = "Tuyen", email = "tuyen@gmail.com", password = "123"))
+            userDao.insert(User(user_id = null, name = "Tuan", email = "tuan@gmail.com", password = "Tuan@123"))
+            userDao.insert(User(user_id = null, name = "Huy", email = "huy@gmail.com", password = "Tuan@123"))
+            userDao.insert(User(user_id = null, name = "Hoang", email = "hoang@gmail.com", password = "Tuan@123"))
+            userDao.insert(User(user_id = null, name = "Tuyen", email = "tuyen@gmail.com", password = "Tuan@123"))
         }
     }
 

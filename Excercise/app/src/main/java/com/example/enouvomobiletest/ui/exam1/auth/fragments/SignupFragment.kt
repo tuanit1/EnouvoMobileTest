@@ -1,4 +1,4 @@
-package com.example.enouvomobiletest.ui.exam1.login.fragments
+package com.example.enouvomobiletest.ui.exam1.auth.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.enouvomobiletest.R
-import com.example.enouvomobiletest.databinding.FragmentLoginBinding
 import com.example.enouvomobiletest.databinding.FragmentSignupBinding
 
 class SignupFragment : Fragment() {
@@ -21,11 +20,15 @@ class SignupFragment : Fragment() {
 
         binding = FragmentSignupBinding.inflate(inflater, container, false)
 
-        binding.text.setOnClickListener{
-            findNavController().navigate(R.id.signup_to_login)
-        }
+        setUI()
 
         return binding.root
+    }
+
+    private fun setUI(){
+        binding.tvBack.setOnClickListener{
+            findNavController().navigate(R.id.signup_to_login)
+        }
     }
 
 }
