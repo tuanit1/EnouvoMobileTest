@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_login"
-    tools:context=".ui.exam1.login.fragments.LoginFragment">
+    tools:context=".ui.exam1.auth.fragments.LoginFragment">
 
     <TextView
         android:id="@+id/text4"
@@ -142,10 +142,10 @@
         app:layout_constraintWidth_percent="0.75" />
 
     <TextView
-        android:id="@+id/tv_signup"
+        android:id="@+id/tvSignup"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="20dp"
         android:autoSizeTextType="uniform"
         android:gravity="center"
         android:text="Sign up?"
@@ -162,7 +162,7 @@
         android:id="@+id/tv_backToLogin2"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="20dp"
         android:autoSizeTextType="uniform"
         android:gravity="center"
         android:text="Forgot your password"
@@ -172,7 +172,7 @@
         app:layout_constraintHeight_percent="0.025"
         app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_signup"
+        app:layout_constraintTop_toBottomOf="@+id/tvSignup"
         app:layout_constraintVertical_bias="0.0"
         app:layout_constraintWidth_percent="0.75" />
 
