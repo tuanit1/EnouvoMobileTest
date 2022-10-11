@@ -17,11 +17,14 @@ interface UserDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(user: User)
 
-    @Insert
-    fun insertAll(vararg users: User)
-
     @Query("DELETE FROM User")
     suspend fun deleteAll()
 
+    @Query("SELECT COUNT(*) FROM user WHERE email = :email AND password = :pw")
+    fun checkLogin(email: String, pw: String): LiveData<Int>
+
+
+    @Query("SELECT COUNT(*) FROM user WHERE email = :email AND password = :pw")
+    fun checkLogin2(email: String, pw: String): Int
 
 }
