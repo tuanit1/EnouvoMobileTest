@@ -14,7 +14,7 @@
         android:theme="@style/Theme.EnouvoMobileTest"
         tools:targetApi="31">
         <activity
-            android:name=".ui.exam1.home.activity.ExamOneActivity"
+            android:name=".ui.exam1.ExamOneActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

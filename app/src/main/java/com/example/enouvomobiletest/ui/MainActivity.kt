@@ -5,9 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.lifecycle.ViewModelProvider
-import com.example.enouvomobiletest.R
 import com.example.enouvomobiletest.databinding.ActivityMainBinding
-import com.example.enouvomobiletest.ui.exam1.home.activity.ExamOneActivity
+import com.example.enouvomobiletest.ui.exam1.ExamOneActivity
 import com.example.enouvomobiletest.ui.exam1.home.viewmodel.PostViewModal
 import com.example.enouvomobiletest.ui.exam1.login.viewmodel.UserViewModal
 
