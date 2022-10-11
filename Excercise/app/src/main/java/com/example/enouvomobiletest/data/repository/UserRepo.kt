@@ -15,4 +15,8 @@ class UserRepo(private val userDao: UserDao) {
     fun checkLogin(email: String, pw: String): LiveData<Int> {
         return userDao.checkLogin(email, pw)
     }
+
+    fun checkLogin2(email: String, pw: String): Int {
+        return userDao.checkLogin2(email, pw)
+    }
 }

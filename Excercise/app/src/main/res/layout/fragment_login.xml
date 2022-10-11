@@ -8,6 +8,25 @@
     tools:context=".ui.exam1.auth.fragments.LoginFragment">
 
     <TextView
+        android:id="@+id/tv_err_pw"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="3dp"
+        android:autoSizeTextType="uniform"
+        android:paddingRight="10dp"
+        android:textAlignment="textEnd"
+        android:textColor="#F4511E"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/btn_login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.02"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rl_pw"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintWidth_percent="0.75" />
+
+    <TextView
         android:id="@+id/text4"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -65,7 +84,7 @@
         app:layout_constraintHeight_percent="0.07"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.51"
+        app:layout_constraintVertical_bias="0.48000002"
         app:layout_constraintWidth_percent="0.75">
 
         <EditText
@@ -100,7 +119,7 @@
         app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rl_email"
-        app:layout_constraintVertical_bias="0.07999998"
+        app:layout_constraintVertical_bias="0.1"
         app:layout_constraintWidth_percent="0.75">
 
         <EditText
@@ -157,6 +176,26 @@
         app:layout_constraintTop_toBottomOf="@+id/btn_login"
         app:layout_constraintVertical_bias="0.0"
         app:layout_constraintWidth_percent="0.75" />
+
+    <TextView
+        android:id="@+id/tv_err_email"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="3dp"
+        android:autoSizeTextType="uniform"
+        android:paddingRight="10dp"
+        android:textAlignment="textEnd"
+        android:textColor="#F4511E"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/rl_pw"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.02"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rl_email"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintWidth_percent="0.75"
+        tools:gravity="right" />
 
     <TextView
         android:id="@+id/tv_backToLogin2"
