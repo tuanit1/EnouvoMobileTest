@@ -28,35 +28,9 @@ class MainActivity : AppCompatActivity() {
             this, ViewModelProvider.AndroidViewModelFactory.getInstance(application)
         )[PostViewModal::class.java]
 
-//        postViewModal.setFavorite(1, 1, true)
-//        postViewModal.setFavorite(2, 1, false)
-//        postViewModal.setFavorite(3, 1, true)
-
-//        postViewModal.getFavouritePosts(1).observe(this) { postList ->
-//            postList.forEach {
-//                Log.e("AAAA", it.toString())
-//            }
-//            Log.e("AAAA", "" + postList.size)
-//        }
-
         mView.btnExam1.setOnClickListener {
             startActivity(Intent(this, ExamOneActivity::class.java))
         }
-
-//        postViewModal.getCrossFav(1).observe(this){ list ->
-//            list.forEach{
-//                Log.e("AAAA", it.toString())
-//            }
-//        }
-
-//        postViewModal.userWithPosts.observe(this) { list ->
-//            list.forEach {
-//                Log.e("AAAA", it.toString())
-//            }
-//            Log.e("AAAA", "" + list.size)
-//        }
-
-
 
     }
 }

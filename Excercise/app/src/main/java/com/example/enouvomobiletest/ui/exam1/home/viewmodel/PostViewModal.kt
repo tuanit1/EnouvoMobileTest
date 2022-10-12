@@ -12,9 +12,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class PostViewModal(application: Application): AndroidViewModel(application) {
-    val allPosts: LiveData<List<Post>>
-    val userWithPosts: LiveData<List<UserWithPosts>>
-    val repository: PostRepo
+    private val allPosts: LiveData<List<Post>>
+    private val userWithPosts: LiveData<List<UserWithPosts>>
+    private val repository: PostRepo
 
     init {
         val dao = AppDatabase.getDatabase(application).getPostDao()
