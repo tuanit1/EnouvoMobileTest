@@ -20,8 +20,13 @@ class UserViewModal(application: Application): AndroidViewModel(application) {
         allUsers = repository.allUsers
     }
 
-    fun insertUser(user: User) = viewModelScope.launch(Dispatchers.IO) {
+    fun insertUser(user: User, callback: () -> Unit) = viewModelScope.launch(Dispatchers.IO) {
         repository.insert(user)
+
+        launch(Dispatchers.Main) {
+            callback()
+        }
+
     }
 
     fun checkLogin(email: String, pw: String) = repository.checkLogin(email, pw)
@@ -34,4 +39,6 @@ class UserViewModal(application: Application): AndroidViewModel(application) {
         }
 
     }
+
+    fun checkUserExist(email: String) = repository.checkUserExist(email)
 }

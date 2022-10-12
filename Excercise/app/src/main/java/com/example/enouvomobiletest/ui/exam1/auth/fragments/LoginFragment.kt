@@ -146,7 +146,7 @@ class LoginFragment : Fragment() {
                 if (count > 0) {
                     findNavController().navigate(R.id.openHome)
                 } else {
-                    Toast.makeText(context, "Sai thong tin", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "Incorrect email address or password", Toast.LENGTH_SHORT).show()
                 }
             }
 

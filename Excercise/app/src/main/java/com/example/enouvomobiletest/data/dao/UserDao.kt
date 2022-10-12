@@ -23,8 +23,10 @@ interface UserDao {
     @Query("SELECT COUNT(*) FROM user WHERE email = :email AND password = :pw")
     fun checkLogin(email: String, pw: String): LiveData<Int>
 
-
     @Query("SELECT COUNT(*) FROM user WHERE email = :email AND password = :pw")
     fun checkLogin2(email: String, pw: String): Int
+
+    @Query("SELECT COUNT(*) FROM user WHERE email = :email")
+    fun checkUserExist(email: String) : LiveData<Int>
 
 }
