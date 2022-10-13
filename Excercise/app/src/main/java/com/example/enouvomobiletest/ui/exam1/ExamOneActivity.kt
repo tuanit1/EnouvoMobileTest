@@ -14,8 +14,6 @@ class ExamOneActivity : AppCompatActivity() {
         binding = ActivityExamOneBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-
     }
 
 }

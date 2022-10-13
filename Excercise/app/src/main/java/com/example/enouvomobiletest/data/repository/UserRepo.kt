@@ -12,6 +12,8 @@ class UserRepo(private val userDao: UserDao) {
         userDao.insert(user)
     }
 
+    fun getUserByID(user_id: Int) = userDao.getUserByID(user_id)
+
     fun checkLogin(email: String, pw: String) = userDao.checkLogin(email, pw)
 
     fun checkLogin2(email: String, pw: String): Int {

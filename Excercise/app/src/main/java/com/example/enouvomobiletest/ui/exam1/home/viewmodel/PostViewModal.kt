@@ -10,6 +10,7 @@ import com.example.enouvomobiletest.data.model.relation.UserWithPosts
 import com.example.enouvomobiletest.data.repository.PostRepo
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class PostViewModal(application: Application): AndroidViewModel(application) {
     private val allPosts: LiveData<List<Post>>
@@ -24,8 +25,19 @@ class PostViewModal(application: Application): AndroidViewModel(application) {
     }
 
     fun getFavouritePosts(user_id: Int) = repository.getFavoritePost(user_id)
+
     fun getPage(page: Int, step: Int) = repository.getPage(page, step)
+
     fun getCrossFav(user_id: Int) = repository.getCrossFav(user_id)
+
+    fun isFavourite(user_id: Int, post_id: Int, callBack: (Boolean) -> Unit) = viewModelScope.launch(Dispatchers.IO) {
+
+        val result = repository.isFavourite(user_id, post_id)
+
+        withContext(Dispatchers.Main){
+            callBack(result > 0)
+        }
+    }
 
     fun setFavorite(post_id: Int, user_id: Int, isFav: Boolean) = viewModelScope.launch(Dispatchers.IO) {
         repository.setFavorite(post_id, user_id, isFav)

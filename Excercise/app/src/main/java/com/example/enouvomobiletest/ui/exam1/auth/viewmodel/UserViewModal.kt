@@ -31,6 +31,8 @@ class UserViewModal(application: Application): AndroidViewModel(application) {
 
     fun checkLogin(email: String, pw: String) = repository.checkLogin(email, pw)
 
+    fun getUserByID(user_id: Int) = repository.getUserByID(user_id)
+
     fun checkLogin2(email: String, pw: String, callback: (Boolean) -> Unit) = viewModelScope.launch(Dispatchers.IO) {
         val result = repository.checkLogin2(email, pw) > 0
 

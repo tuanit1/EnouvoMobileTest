@@ -16,10 +16,12 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.window.layout.WindowMetricsCalculator
 import com.example.enouvomobiletest.R
+import com.example.enouvomobiletest.data.model.User
 import com.example.enouvomobiletest.databinding.FragmentLoginBinding
 import com.example.enouvomobiletest.ui.MainActivity
 import com.example.enouvomobiletest.ui.exam1.auth.viewmodel.UserViewModal
 import com.example.enouvomobiletest.ui.exam1.home.viewmodel.PostViewModal
+import com.example.enouvomobiletest.util.Constant
 import com.google.android.material.snackbar.Snackbar
 
 class LoginFragment : Fragment() {
@@ -97,11 +99,6 @@ class LoginFragment : Fragment() {
         binding.edtPw.addTextChangedListener { text ->
             val email = binding.edtEmail.text.toString()
             val pw = binding.edtPw.text.toString()
-//
-//            Log.e("AAAA", """
-//                pw: $pw
-//                valid: ${PASSWORD_REGEX.toRegex().matches(pw)}
-//            """.trimIndent())
 
             handleValidate(email, pw)
         }
@@ -142,12 +139,17 @@ class LoginFragment : Fragment() {
         val pw = binding.edtPw.text.toString()
 
         if (!handleValidate(email, pw)) {
-            userViewModal.checkLogin(email, pw).observe(viewLifecycleOwner) { count ->
-                if (count > 0) {
+            userViewModal.checkLogin(email, pw).observe(viewLifecycleOwner) { list ->
+
+                if(list.isNotEmpty()){
+                    list[0].user_id?.let {
+                        Constant.mUserID = it
+                    }
                     findNavController().navigate(R.id.openHome)
-                } else {
+                }else{
                     Toast.makeText(context, "Incorrect email address or password", Toast.LENGTH_SHORT).show()
                 }
+
             }
 
 //                userViewModal.checkLogin2(email, pw){ result ->
@@ -171,5 +173,6 @@ class LoginFragment : Fragment() {
         binding.edtPw.textSize = heightDp * 0.018f
 
     }
+
 
 }

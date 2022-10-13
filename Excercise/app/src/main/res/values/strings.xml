@@ -2,4 +2,6 @@
     <string name="app_name">EnouvoMobileTest</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="itemContentString">~~ hiring for a UX Lead in Sydney - who should I talk to?</string>
+    <string name="itemTimeString"><font color="#687684">%s · %s · </font></string>
 </resources>

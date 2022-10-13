@@ -47,7 +47,7 @@ public abstract class AppDatabase : RoomDatabase() {
 
         }
 
-        suspend fun initPost(postDao: PostDao) {
+        private suspend fun initPost(postDao: PostDao) {
             postDao.deleteAll()
 
             val sdf = SimpleDateFormat("dd/M/yyyy hh:mm:ss")
