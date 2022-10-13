@@ -19,7 +19,9 @@ class PostRepo(private val postDao: PostDao) {
 
     fun getCrossFav(user_id: Int): LiveData<List<FavoritePosts>> = postDao.getCrossFav(user_id)
 
-    suspend fun setFavorite(post_id: Int, user_id: Int, isFav: Boolean) = postDao.setFavorite(FavoritePosts(post_id, user_id, isFav))
+    suspend fun setFavorite(post_id: Int, user_id: Int) = postDao.setFavorite(FavoritePosts(post_id, user_id))
+
+    suspend fun removeFavorite(post_id: Int, user_id: Int) = postDao.removeFavorite(post_id, user_id)
 
     fun isFavourite(user_id: Int, post_id: Int) = postDao.isFavourite(user_id, post_id)
 

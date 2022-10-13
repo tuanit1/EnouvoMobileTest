@@ -39,8 +39,12 @@ class PostViewModal(application: Application): AndroidViewModel(application) {
         }
     }
 
-    fun setFavorite(post_id: Int, user_id: Int, isFav: Boolean) = viewModelScope.launch(Dispatchers.IO) {
-        repository.setFavorite(post_id, user_id, isFav)
+    fun setFavorite(post_id: Int, user_id: Int) = viewModelScope.launch(Dispatchers.IO) {
+        repository.setFavorite(post_id, user_id)
+    }
+
+    fun removeFavorite(post_id: Int, user_id: Int) = viewModelScope.launch(Dispatchers.IO) {
+        repository.removeFavorite(post_id, user_id)
     }
 
 

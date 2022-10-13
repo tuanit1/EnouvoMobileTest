@@ -27,28 +27,39 @@ class HomeFragment : Fragment() {
         return binding.root
     }
 
-    private fun initView(){
+    private fun initView() {
         openNewFeedFragment()
     }
 
-    private fun initListener(){
+    private fun initListener() {
         binding.bottomNav.setOnItemSelectedListener {
 
-            when(it.itemId){
+            when (it.itemId) {
 
                 R.id.itemNavNewFeed -> run {
+
+                    val frm = NewFeedFragment().apply{
+                        arguments = Bundle().apply { putBoolean("isFav", false) }
+                    }
+
                     replaceFragment(
                         containerId = getContainerId(),
-                        fragment = NewFeedFragment(),
-                        addToBackStack = false
+                        fragment = frm,
+                        addToBackStack = false,
+                        tag = "tweet"
                     )
                 }
 
                 R.id.itemNavFavourite -> run {
+                    val frm = NewFeedFragment().apply{
+                        arguments = Bundle().apply { putBoolean("isFav", true) }
+                    }
+
                     replaceFragment(
                         containerId = getContainerId(),
-                        fragment = FavouriteFragment(),
-                        addToBackStack = false
+                        fragment = frm,
+                        addToBackStack = false,
+                        tag = "favourite"
                     )
                 }
 
@@ -60,11 +71,17 @@ class HomeFragment : Fragment() {
 
     private fun getContainerId(): Int = R.id.fragment_container_home
 
-    private fun openNewFeedFragment(){
+    private fun openNewFeedFragment() {
+
+        val frm = NewFeedFragment().apply{
+            arguments = Bundle().apply { putBoolean("isFav", false) }
+        }
+
         addFragment(
             containerId = getContainerId(),
-            fragment = NewFeedFragment(),
-            addToBackStack = false
+            fragment = frm,
+            addToBackStack = false,
+            tag = "tweet"
         )
     }
 

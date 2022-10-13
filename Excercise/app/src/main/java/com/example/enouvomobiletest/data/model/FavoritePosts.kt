@@ -6,5 +6,4 @@ import androidx.room.Entity
 data class FavoritePosts(
     val post_id: Int,
     val user_id: Int,
-    val isFav: Boolean
 )

@@ -6,13 +6,14 @@ import androidx.fragment.app.commit
 fun Fragment.replaceFragment(
     containerId: Int,
     fragment: Fragment,
-    addToBackStack: Boolean = false
+    addToBackStack: Boolean = false,
+    tag: String
 ){
-    if (childFragmentManager.findFragmentByTag(tag ?: fragment.javaClass.name) == null) {
+    if (childFragmentManager.findFragmentByTag(tag) == null) {
         childFragmentManager.commit {
-            replace(containerId, fragment, tag ?: fragment.javaClass.name)
+            replace(containerId, fragment, tag)
             if (addToBackStack) {
-                addToBackStack(fragment.javaClass.name)
+                addToBackStack(tag)
             }
         }
     }
@@ -21,13 +22,14 @@ fun Fragment.replaceFragment(
 fun Fragment.addFragment(
     containerId: Int,
     fragment: Fragment,
-    addToBackStack: Boolean = false
+    addToBackStack: Boolean = false,
+    tag: String
 ){
-    if (childFragmentManager.findFragmentByTag(tag ?: fragment.javaClass.name) == null) {
+    if (childFragmentManager.findFragmentByTag(tag) == null) {
         childFragmentManager.commit {
-            add(containerId, fragment, tag ?: fragment.javaClass.name)
+            add(containerId, fragment, tag)
             if (addToBackStack) {
-                addToBackStack(fragment.javaClass.name)
+                addToBackStack(tag)
             }
         }
     }

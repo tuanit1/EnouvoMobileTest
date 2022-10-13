@@ -17,26 +17,29 @@ interface PostDao {
             "ORDER BY post_id LIMIT :page*:step, :step")
     fun getPage(page: Int, step: Int): LiveData<List<PostWithUser>>
 
-    @Query("SELECT COUNT(*) FROM FavoritePosts " +
-            "WHERE user_id= :user_id AND post_id = :post_id AND isFav = 1")
-    fun isFavourite(user_id: Int, post_id: Int): Int
-
     @Transaction
-    @Query("SELECT DISTINCT Post.* FROM user " +
+    @Query("SELECT DISTINCT Post.*, User.* FROM user " +
             "JOIN FavoritePosts ON FavoritePosts.user_id = user.user_id " +
             "JOIN Post ON FavoritePosts.post_id = Post.post_id " +
-            "WHERE user.user_id = :user_id AND FavoritePosts.isFav = 1")
-    fun getFavoritePost(user_id: Int): LiveData<List<Post>>
+            "WHERE user.user_id = :user_id")
+    fun getFavoritePost(user_id: Int): LiveData<List<PostWithUser>>
 
-    @Query("SELECT * FROM FavoritePosts WHERE user_id = :user_id AND isFav = 1")
+    @Query("SELECT COUNT(*) FROM FavoritePosts " +
+            "WHERE user_id= :user_id AND post_id = :post_id")
+    fun isFavourite(user_id: Int, post_id: Int): Int
+
+    @Query("SELECT * FROM FavoritePosts WHERE user_id = :user_id")
     fun getCrossFav(user_id: Int): LiveData<List<FavoritePosts>>
 
     @Transaction
     @Query("SELECT * FROM user")
     fun getUserWithPosts(): LiveData<List<UserWithPosts>>
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun setFavorite(fav: FavoritePosts)
+
+    @Query("DELETE FROM FavoritePosts WHERE user_id = :user_id AND post_id = :post_id")
+    suspend fun removeFavorite(post_id: Int, user_id: Int)
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(post: Post)
