@@ -29,7 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:gravity="center"
-        android:text="Please Log into your existing account"
+        android:text="@string/mainTitle"
         android:textColor="@color/white"
         android:textSize="13dp"
         android:visibility="visible"
@@ -56,7 +56,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:gravity="center"
-            android:text="Login"
+            android:text="@string/login"
             android:textColor="@color/white"
             app:autoSizeTextType="uniform"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -69,6 +69,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/rl_email"
         style="@style/CustomInputText"
+        android:layout_marginTop="38dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text4">
@@ -78,9 +79,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@null"
-            android:hint="Your Email"
+            android:hint="@string/yourEmail"
             android:inputType="textEmailAddress"
-            android:text="tuan@gmail.com"
+            android:text="@string/templateEmail"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
             android:textCursorDrawable="@color/white"
@@ -92,17 +93,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.466"
-            app:layout_constraintWidth_percent="0.85" />
+            app:layout_constraintWidth_percent="0.85"
+            android:autofillHints="" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/rl_pw"
-        android:layout_width="0dp"
-        android:layout_height="51dp"
-        android:layout_marginStart="30dp"
+        style="@style/CustomInputText"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="30dp"
-        android:background="@drawable/bg_input_border"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_err_email">
@@ -111,12 +109,11 @@
             android:id="@+id/edt_pw"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:autoSizeTextType="uniform"
             android:background="@null"
             android:ems="10"
-            android:hint="Your Password"
+            android:hint="@string/yourPassword"
             android:inputType="textPassword"
-            android:text="Tuan@123"
+            android:text="@string/templatePassword"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
             android:textCursorDrawable="@color/white"
@@ -126,7 +123,8 @@
             app:layout_constraintHeight_percent="0.6"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_percent="0.85" />
+            app:layout_constraintWidth_percent="0.85"
+            android:autofillHints="" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
@@ -134,7 +132,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:text="Welcome!"
+        android:text="@string/mainWelcome"
         android:textColor="@color/white"
         android:textSize="18dp"
         android:visibility="visible"
@@ -147,9 +145,8 @@
         android:layout_width="wrap_content"
         android:layout_height="18dp"
         android:layout_marginTop="20dp"
-        android:autoSizeTextType="uniform"
         android:gravity="center"
-        android:text="Sign up?"
+        android:text="@string/signUp"
         android:textColor="@color/white"
         android:textSize="13dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -180,9 +177,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="23dp"
-        android:autoSizeTextType="uniform"
         android:gravity="center"
-        android:text="Forgot your password"
+        android:text="@string/forgotYourPassword"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

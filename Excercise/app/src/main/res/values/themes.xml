@@ -18,9 +18,26 @@
     <style name="CustomInputText">
         <item name="android:layout_height">51dp</item>
         <item name="android:layout_width">0dp</item>
-        <item name="background">@drawable/bg_input_border</item>
-        <item name="android:layout_marginTop">38dp</item>
+        <item name="android:background">@drawable/bg_input_border</item>
         <item name="android:layout_marginLeft">30dp</item>
         <item name="android:layout_marginRight">30dp</item>
     </style>
+
+    <style name="CustomValidateWarning">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginEnd">10dp</item>
+        <item name="android:textAlignment">textEnd</item>
+        <item name="android:textColor">@color/oriolesOrange</item>
+        <item name="android:textSize">12dp</item>
+    </style>
+
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
+    android:layout_marginEnd="10dp"
+    android:textAlignment="textEnd"
+    android:textColor="@color/oriolesOrange"
+    android:textSize="12dp"
 </resources>

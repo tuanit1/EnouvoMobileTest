@@ -86,7 +86,14 @@ class NewFeedFragment : Fragment() {
 
         mAdapterFavourite = PostFavouriteAdapter(
             mPosts = mPostFavourite,
-            mPostViewModal = postViewModal
+            mPostViewModal = postViewModal,
+            onFavRemove = { postID ->
+                val index = mPostFavourite.indexOfFirst { it.post.post_id == postID }
+
+                mPostFavourite.removeAt(index)
+                mAdapterFavourite.notifyItemRemoved(index)
+
+            }
         )
 
         binding.rvPost.apply {

@@ -1,6 +1,7 @@
 package com.example.enouvomobiletest.ui.exam1.home.adapter
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -15,8 +16,9 @@ import com.example.enouvomobiletest.ui.exam1.home.viewmodel.HomeViewModal
 import com.example.enouvomobiletest.util.Constant
 
 class PostFavouriteAdapter(
-    private val mPosts: MutableList<PostWithFavoriteUsers>,
+    private var mPosts: MutableList<PostWithFavoriteUsers>,
     private val mPostViewModal: HomeViewModal?,
+    private val onFavRemove: (Int) -> Unit
 ) : ListAdapter<PostWithFavoriteUsers, PostFavouriteAdapter.ViewHolder>(DiffCallbackFavourite()) {
 
     private lateinit var mContext: Context
@@ -37,8 +39,8 @@ class PostFavouriteAdapter(
 
                     btnFavourite.setOnClickListener {
                         mPostViewModal?.removeFavorite(item.post.post_id!!, Constant.mUserID)
-                        mPosts.removeAt(position)
-                        notifyItemRemoved(position)
+
+                        item.post.post_id?.let { it1 -> onFavRemove(it1) }
                     }
                 }else{
                     btnFavourite.setBackgroundResource(R.drawable.ic_heart_solid)

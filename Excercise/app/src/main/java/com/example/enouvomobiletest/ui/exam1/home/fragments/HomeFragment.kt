@@ -38,28 +38,37 @@ class HomeFragment : Fragment() {
 
                 R.id.itemNavNewFeed -> run {
 
+                    val isFav: String = getString(R.string.isFav)
+
                     val frm = NewFeedFragment().apply{
-                        arguments = Bundle().apply { putBoolean(getString(R.string.isFav), false) }
+                        arguments = Bundle().apply {
+                            putBoolean(isFav, false)
+                        }
                     }
 
                     replaceFragment(
                         containerId = getContainerId(),
                         fragment = frm,
                         addToBackStack = false,
-                        tag = getString(R.string.tweet)
+                        tag = requireContext().getString(R.string.tweet)
                     )
                 }
 
                 R.id.itemNavFavourite -> run {
+
+                    val isFav: String = getString(R.string.isFav)
+
                     val frm = NewFeedFragment().apply{
-                        arguments = Bundle().apply { putBoolean(getString(R.string.isFav), true) }
+                        arguments = Bundle().apply {
+                            putBoolean(isFav, true)
+                        }
                     }
 
                     replaceFragment(
                         containerId = getContainerId(),
                         fragment = frm,
                         addToBackStack = false,
-                        tag = getString(R.string.favourite)
+                        tag = resources.getString(R.string.favourite)
                     )
                 }
 
@@ -73,15 +82,17 @@ class HomeFragment : Fragment() {
 
     private fun openNewFeedFragment() {
 
+        val isFav: String = getString(R.string.isFav)
+
         val frm = NewFeedFragment().apply{
-            arguments = Bundle().apply { putBoolean(getString(R.string.isFav), false) }
+            arguments = Bundle().apply { putBoolean(isFav, false) }
         }
 
         addFragment(
             containerId = getContainerId(),
             fragment = frm,
             addToBackStack = false,
-            tag = getString(R.string.tweet)
+            tag = requireContext().getString(R.string.tweet)
         )
     }
 

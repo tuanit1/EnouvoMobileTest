@@ -17,5 +17,19 @@
     <string name="mainExam1">Exam 1</string>
     <string name="mainExam2">Exam 2</string>
     <string name="mainExam3">Exam 3</string>
+    <string name="mainTitle">Please Log into your existing account</string>
+    <string name="mainWelcome">Welcome!</string>
+    <string name="login">Login</string>
+    <string name="yourEmail">Your Email</string>
+    <string name="templateEmail">tuan@gmail.com</string>
+    <string name="yourPassword">Your Password</string>
+    <string name="templatePassword">Tuan@123</string>
+    <string name="signUp">Sign up?</string>
+    <string name="forgotYourPassword">Forgot your password</string>
+    <string name="back">Back</string>
+    <string name="twitterWebApp">Twitter Web App</string>
+    <string name="yourName">Your Name</string>
+    <string name="pleaseInputInfomation">Please input infomation</string>
+    <string name="moveToLogin">Move to login</string>
 
 </resources>
