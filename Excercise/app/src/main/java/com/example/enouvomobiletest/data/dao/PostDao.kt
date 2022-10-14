@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.enouvomobiletest.data.model.FavoritePosts
 import com.example.enouvomobiletest.data.model.Post
+import com.example.enouvomobiletest.data.model.relation.PostWithFavoriteUsers
 import com.example.enouvomobiletest.data.model.relation.PostWithUser
 import com.example.enouvomobiletest.data.model.relation.UserWithPosts
 
@@ -23,6 +24,12 @@ interface PostDao {
             "JOIN Post ON FavoritePosts.post_id = Post.post_id " +
             "WHERE user.user_id = :user_id")
     fun getFavoritePost(user_id: Int): LiveData<List<PostWithUser>>
+
+    @Transaction
+    @Query("SELECT DISTINCT * FROM user " +
+            "JOIN FavoritePosts ON FavoritePosts.user_id = user.user_id " +
+            "JOIN Post ON FavoritePosts.post_id = Post.post_id")
+    fun getPostWithFavoriteUsers(): List<PostWithFavoriteUsers>
 
     @Query("SELECT COUNT(*) FROM FavoritePosts " +
             "WHERE user_id= :user_id AND post_id = :post_id")

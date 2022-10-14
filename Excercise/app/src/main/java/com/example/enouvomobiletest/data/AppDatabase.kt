@@ -1,7 +1,6 @@
 package com.example.enouvomobiletest.data
 
 import android.content.Context
-import android.util.Log
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
@@ -22,12 +21,12 @@ import java.util.*
     version = 1,
     exportSchema = false
 )
-public abstract class AppDatabase : RoomDatabase() {
+abstract class AppDatabase : RoomDatabase() {
 
     abstract fun getPostDao(): PostDao
     abstract fun getUserDao(): UserDao
 
-    class AppDatabaseCallback : RoomDatabase.Callback() {
+    class AppDatabaseCallback : Callback() {
         override fun onCreate(db: SupportSQLiteDatabase) {
             super.onCreate(db)
 
@@ -37,8 +36,6 @@ public abstract class AppDatabase : RoomDatabase() {
                 applicationScope.launch {
                     val userDao = database.getUserDao()
                     val postDao = database.getPostDao()
-
-                    Log.e("AAAA", "Callback init call")
 
                     initUser(userDao)
                     initPost(postDao)
@@ -50,7 +47,7 @@ public abstract class AppDatabase : RoomDatabase() {
         private suspend fun initPost(postDao: PostDao) {
             postDao.deleteAll()
 
-            val sdf = SimpleDateFormat("dd/M/yyyy hh:mm:ss")
+            val sdf = SimpleDateFormat("dd/M/yyyy hh:mm:ss", Locale.US)
             val currentDate = sdf.format(Date())
 
             postDao.insert(Post(null,  1, "Content1", currentDate))
@@ -78,7 +75,7 @@ public abstract class AppDatabase : RoomDatabase() {
 
         }
 
-        suspend fun initUser(userDao: UserDao){
+        private suspend fun initUser(userDao: UserDao){
             userDao.deleteAll()
 
             userDao.insert(User(user_id = null, name = "Tuan", email = "tuan@gmail.com", password = "Tuan@123"))

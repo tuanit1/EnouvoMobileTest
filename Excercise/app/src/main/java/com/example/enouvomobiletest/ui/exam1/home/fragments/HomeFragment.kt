@@ -39,27 +39,27 @@ class HomeFragment : Fragment() {
                 R.id.itemNavNewFeed -> run {
 
                     val frm = NewFeedFragment().apply{
-                        arguments = Bundle().apply { putBoolean("isFav", false) }
+                        arguments = Bundle().apply { putBoolean(getString(R.string.isFav), false) }
                     }
 
                     replaceFragment(
                         containerId = getContainerId(),
                         fragment = frm,
                         addToBackStack = false,
-                        tag = "tweet"
+                        tag = getString(R.string.tweet)
                     )
                 }
 
                 R.id.itemNavFavourite -> run {
                     val frm = NewFeedFragment().apply{
-                        arguments = Bundle().apply { putBoolean("isFav", true) }
+                        arguments = Bundle().apply { putBoolean(getString(R.string.isFav), true) }
                     }
 
                     replaceFragment(
                         containerId = getContainerId(),
                         fragment = frm,
                         addToBackStack = false,
-                        tag = "favourite"
+                        tag = getString(R.string.favourite)
                     )
                 }
 
@@ -69,19 +69,19 @@ class HomeFragment : Fragment() {
         }
     }
 
-    private fun getContainerId(): Int = R.id.fragment_container_home
+    private fun getContainerId(): Int = R.id.fragmentContainerHome
 
     private fun openNewFeedFragment() {
 
         val frm = NewFeedFragment().apply{
-            arguments = Bundle().apply { putBoolean("isFav", false) }
+            arguments = Bundle().apply { putBoolean(getString(R.string.isFav), false) }
         }
 
         addFragment(
             containerId = getContainerId(),
             fragment = frm,
             addToBackStack = false,
-            tag = "tweet"
+            tag = getString(R.string.tweet)
         )
     }
 

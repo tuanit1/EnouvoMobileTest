@@ -6,13 +6,14 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import com.example.enouvomobiletest.data.AppDatabase
 import com.example.enouvomobiletest.data.model.Post
+import com.example.enouvomobiletest.data.model.relation.PostWithFavoriteUsers
 import com.example.enouvomobiletest.data.model.relation.UserWithPosts
 import com.example.enouvomobiletest.data.repository.PostRepo
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class PostViewModal(application: Application): AndroidViewModel(application) {
+class HomeViewModal(application: Application): AndroidViewModel(application) {
     private val allPosts: LiveData<List<Post>>
     private val userWithPosts: LiveData<List<UserWithPosts>>
     private val repository: PostRepo
@@ -24,18 +25,21 @@ class PostViewModal(application: Application): AndroidViewModel(application) {
         userWithPosts = repository.userWithPosts
     }
 
-    fun getFavouritePosts(user_id: Int) = repository.getFavoritePost(user_id)
-
     fun getPage(page: Int, step: Int) = repository.getPage(page, step)
 
-    fun getCrossFav(user_id: Int) = repository.getCrossFav(user_id)
-
     fun isFavourite(user_id: Int, post_id: Int, callBack: (Boolean) -> Unit) = viewModelScope.launch(Dispatchers.IO) {
-
         val result = repository.isFavourite(user_id, post_id)
 
         withContext(Dispatchers.Main){
             callBack(result > 0)
+        }
+    }
+
+    fun getPostWithFavoriteUsers(callBack: (list: List<PostWithFavoriteUsers>) -> Unit) = viewModelScope.launch(Dispatchers.IO) {
+        val result: List<PostWithFavoriteUsers> = repository.getPostWithFavoriteUsers()
+
+        withContext(Dispatchers.Main){
+            callBack(result)
         }
     }
 

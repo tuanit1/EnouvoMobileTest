@@ -1,41 +1,32 @@
-package com.example.enouvomobiletest.ui.exam1.auth.fragments
+package com.example.enouvomobiletest.ui.exam1.auth.login.fragments
 
 import android.app.Activity
 import android.app.Application
 import android.os.Bundle
-import android.util.Log
 import android.util.Patterns
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
-import androidx.core.widget.doOnTextChanged
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.window.layout.WindowMetricsCalculator
 import com.example.enouvomobiletest.R
-import com.example.enouvomobiletest.data.model.User
 import com.example.enouvomobiletest.databinding.FragmentLoginBinding
-import com.example.enouvomobiletest.ui.MainActivity
-import com.example.enouvomobiletest.ui.exam1.auth.viewmodel.UserViewModal
-import com.example.enouvomobiletest.ui.exam1.home.viewmodel.PostViewModal
+import com.example.enouvomobiletest.extension.PASSWORD_REGEX
+import com.example.enouvomobiletest.ui.exam1.auth.viewmodel.AuthViewModal
 import com.example.enouvomobiletest.util.Constant
-import com.google.android.material.snackbar.Snackbar
 
 class LoginFragment : Fragment() {
 
     private lateinit var binding: FragmentLoginBinding
-    private lateinit var userViewModal: UserViewModal
-    private val ERR_EMAIL_EMPTY = "Email is empty!"
-    private val ERR_EMAIL_NOT_VALID = "Email is not valid"
-    private val ERR_PW_EMPTY = "Password is empty!"
-    private val ERR_PW_NOT_VALID = "Password is not valid"
-    private val PASSWORD_REGEX = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#\$%^&+=])(?=\\S+\$).{8,}\$"
+    private lateinit var userViewModal: AuthViewModal
+
     private var isShowErr: Boolean = false
-    var widthDp: Float = 0f
-    var heightDp: Float = 0f
+    private var widthDp: Float = 0f
+    private var heightDp: Float = 0f
 
 
     override fun onCreateView(
@@ -47,14 +38,7 @@ class LoginFragment : Fragment() {
         userViewModal = ViewModelProvider(
             this,
             ViewModelProvider.AndroidViewModelFactory.getInstance(context?.applicationContext as Application)
-        )[UserViewModal::class.java]
-
-        userViewModal.allUsers.observe(viewLifecycleOwner) { list ->
-            list.forEach {
-                Log.e("AAAA", it.toString())
-            }
-            Log.e("AAAA", "" + list.size)
-        }
+        )[AuthViewModal::class.java]
 
         getScreenSize()
         setUI()
@@ -72,59 +56,51 @@ class LoginFragment : Fragment() {
         }
 
         binding.tvErrPw.setOnClickListener {
-            Toast.makeText(context, """
+            Toast.makeText(
+                context, """
                 Password must contain : 
                 - at least 1 lower character. 
                 - at least 1 upper character.
                 - at least 1 digit.
                 - at least 1 one symbol.
                 - at least 8 characters long.
-            """.trimIndent(), Toast.LENGTH_SHORT).show()
+            """.trimIndent(), Toast.LENGTH_SHORT
+            ).show()
         }
 
-        binding.edtEmail.addTextChangedListener { text ->
-
-            val email = binding.edtEmail.text.toString()
-            val pw = binding.edtPw.text.toString()
-
-//            Log.e("AAAA", """
-//                email: $email
-//                valid: ${Patterns.EMAIL_ADDRESS.matcher(email).matches()}
-//            """.trimIndent())
-
-            handleValidate(email, pw)
-
+        binding.edtEmail.addTextChangedListener {
+            handleValidate()
         }
 
-        binding.edtPw.addTextChangedListener { text ->
-            val email = binding.edtEmail.text.toString()
-            val pw = binding.edtPw.text.toString()
-
-            handleValidate(email, pw)
+        binding.edtPw.addTextChangedListener {
+            handleValidate()
         }
     }
 
-    private fun handleValidate(email: String, pw: String): Boolean {
+    private fun handleValidate(): Boolean {
+
+        val email = binding.edtEmail.text.toString()
+        val pw = binding.edtPw.text.toString()
 
         var isError = false
 
         if (email.isEmpty() && isShowErr) {
             isError = true
-            binding.tvErrEmail.text = ERR_EMAIL_EMPTY
-        }else if(!Patterns.EMAIL_ADDRESS.matcher(email).matches() && isShowErr){
+            binding.tvErrEmail.text = getString(R.string.errorEmailEmpty)
+        } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches() && isShowErr) {
             isError = true
-            binding.tvErrEmail.text = ERR_EMAIL_NOT_VALID
-        }else{
+            binding.tvErrEmail.text = getString(R.string.errorEmailNotValid)
+        } else {
             binding.tvErrEmail.text = ""
         }
 
         if (pw.isEmpty() && isShowErr) {
             isError = true
-            binding.tvErrPw.text = ERR_PW_EMPTY
-        }else if(!PASSWORD_REGEX.toRegex().matches(pw) && isShowErr){
+            binding.tvErrPw.text = getString(R.string.errorPasswordEmpty)
+        } else if (!PASSWORD_REGEX.matches(pw) && isShowErr) {
             isError = true
-            binding.tvErrPw.text = ERR_PW_NOT_VALID
-        }else{
+            binding.tvErrPw.text = getString(R.string.errorPasswordNotValid)
+        } else {
             binding.tvErrPw.text = ""
         }
 
@@ -138,27 +114,23 @@ class LoginFragment : Fragment() {
         val email = binding.edtEmail.text.toString()
         val pw = binding.edtPw.text.toString()
 
-        if (!handleValidate(email, pw)) {
+        if (!handleValidate()) {
             userViewModal.checkLogin(email, pw).observe(viewLifecycleOwner) { list ->
 
-                if(list.isNotEmpty()){
+                if (list.isNotEmpty()) {
                     list[0].user_id?.let {
                         Constant.mUserID = it
                     }
                     findNavController().navigate(R.id.openHome)
-                }else{
-                    Toast.makeText(context, "Incorrect email address or password", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(
+                        context,
+                        getString(R.string.credentialIncorrect),
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
 
             }
-
-//                userViewModal.checkLogin2(email, pw){ result ->
-//                    if(result){
-//                        findNavController().navigate(R.id.openHome)
-//                    }else{
-//                        Toast.makeText(context, "Sai thong tin", Toast.LENGTH_SHORT).show()
-//                    }
-//                }
         }
     }
 
@@ -171,8 +143,6 @@ class LoginFragment : Fragment() {
 
         binding.edtEmail.textSize = heightDp * 0.018f
         binding.edtPw.textSize = heightDp * 0.018f
-
     }
-
 
 }

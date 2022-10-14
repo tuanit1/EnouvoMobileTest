@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_login"
-    tools:context=".ui.exam1.auth.fragments.LoginFragment">
+    tools:context=".ui.exam1.auth.login.fragments.LoginFragment">
 
     <TextView
         android:id="@+id/tv_err_pw"

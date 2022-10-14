@@ -1,7 +1,21 @@
 <resources>
     <string name="app_name">EnouvoMobileTest</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="itemContentString">~~ hiring for a UX Lead in Sydney - who should I talk to?</string>
     <string name="itemTimeString"><font color="#687684">%s · %s · </font></string>
+    <string name="errorEmailEmpty">Email is empty!</string>
+    <string name="errorEmailNotValid">Email is not valid!</string>
+    <string name="errorPasswordEmpty">Password is empty!</string>
+    <string name="errorPasswordNotValid">Password is not valid!</string>
+    <string name="credentialIncorrect">Incorrect email address or password</string>
+    <string name="errorNameEmpty">Name is empty!</string>
+    <string name="emailAlreadyUse">This email is already in use</string>
+    <string name="signupSuccess">Sign up successful</string>
+    <string name="isFav">isFavourite</string>
+    <string name="tweet">Tweet</string>
+    <string name="favourite">Favourite</string>
+    <string name="mainExam1">Exam 1</string>
+    <string name="mainExam2">Exam 2</string>
+    <string name="mainExam3">Exam 3</string>
+
 </resources>
