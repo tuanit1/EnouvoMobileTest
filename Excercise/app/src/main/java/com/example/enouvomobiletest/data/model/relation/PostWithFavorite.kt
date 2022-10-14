@@ -7,12 +7,17 @@ import com.example.enouvomobiletest.data.model.FavoritePosts
 import com.example.enouvomobiletest.data.model.Post
 import com.example.enouvomobiletest.data.model.User
 
-data class PostWithFavorite(
-    @Embedded val user: User,
+data class PostWithFavoriteUsers(
+    @Embedded val post: Post,
     @Relation(
-        parentColumn = "user_id",
-        entityColumn = "post_id",
+        parentColumn = "post_id",
+        entityColumn = "user_id",
         associateBy = Junction(FavoritePosts::class)
     )
-    val posts: List<Post>
+    val favUser: List<User>,
+    @Relation(
+        parentColumn = "user_id",
+        entityColumn = "user_id"
+    )
+    val user: User,
 )

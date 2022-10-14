@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_login"
-    tools:context=".ui.exam1.auth.fragments.LoginFragment">
+    tools:context=".ui.exam1.auth.login.fragments.LoginFragment">
 
     <TextView
         android:id="@+id/tv_err_pw"
@@ -94,6 +94,7 @@
             android:background="@null"
             android:hint="Your Email"
             android:inputType="textEmailAddress"
+            android:text="tuan@gmail.com"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
             android:textCursorDrawable="@color/white"
@@ -131,6 +132,7 @@
             android:ems="10"
             android:hint="Your Password"
             android:inputType="textPassword"
+            android:text="Tuan@123"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
             android:textCursorDrawable="@color/white"
@@ -224,6 +226,7 @@
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.12"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.7" />

@@ -10,15 +10,19 @@ import com.example.enouvomobiletest.data.repository.UserRepo
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class UserViewModal(application: Application): AndroidViewModel(application) {
-    val repository: UserRepo
-    val allUsers: LiveData<List<User>>
+class AuthViewModal(application: Application): AndroidViewModel(application) {
+    private val repository: UserRepo
+    private val allUsers: LiveData<List<User>>
 
     init {
         val dao = AppDatabase.getDatabase(application).getUserDao()
         repository = UserRepo(dao)
         allUsers = repository.allUsers
     }
+
+    fun checkLogin(email: String, pw: String) = repository.checkLogin(email, pw)
+
+    fun checkUserExist(email: String) = repository.checkUserExist(email)
 
     fun insertUser(user: User, callback: () -> Unit) = viewModelScope.launch(Dispatchers.IO) {
         repository.insert(user)
@@ -29,16 +33,4 @@ class UserViewModal(application: Application): AndroidViewModel(application) {
 
     }
 
-    fun checkLogin(email: String, pw: String) = repository.checkLogin(email, pw)
-
-    fun checkLogin2(email: String, pw: String, callback: (Boolean) -> Unit) = viewModelScope.launch(Dispatchers.IO) {
-        val result = repository.checkLogin2(email, pw) > 0
-
-        launch(Dispatchers.Main){
-            callback(result)
-        }
-
-    }
-
-    fun checkUserExist(email: String) = repository.checkUserExist(email)
 }
