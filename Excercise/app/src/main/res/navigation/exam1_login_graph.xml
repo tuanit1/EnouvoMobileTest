@@ -13,8 +13,8 @@
         <action
             android:id="@+id/login_to_signup"
             app:destination="@id/signupFragment"
-            app:enterAnim="@android:anim/slide_in_left"
-            app:exitAnim="@android:anim/slide_out_right" />
+            app:enterAnim="@anim/slide_up"
+            app:exitAnim="@anim/slide_up_out" />
         <action
             android:id="@+id/openHome"
             app:destination="@id/homeFragment" />
@@ -27,8 +27,8 @@
         <action
             android:id="@+id/signup_to_login"
             app:destination="@id/loginFragment"
-            app:enterAnim="@android:anim/slide_in_left"
-            app:exitAnim="@android:anim/slide_out_right" />
+            app:enterAnim="@anim/slide_down_in"
+            app:exitAnim="@anim/slide_down" />
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
